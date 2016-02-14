@@ -1,0 +1,279 @@
+/**************************************************
+GENERAL
+
+
+***************************************************/
+
+body {
+    /* background-color: grey; */
+    margin: 0;
+    padding-top: 70px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.85em;
+}
+
+.container {;
+    max-width: 1000px;
+}
+
+form {
+    margin: 0 auto;
+    width: 310px;
+}
+
+fieldset {
+  max-width: 310px;
+  margin-top: 20px;
+  border: 1px solid #d6d6d6;
+  background-color: #fff;
+  line-height: 1.6em;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+h3 {
+  margin: 0;
+}
+
+/**************************************************
+HEADING
+***************************************************/
+
+header {
+  float: left;
+  margin: 20px 20px;
+  width: 100%;
+}
+
+#logo {
+  text-align: center;
+  margin: 0;
+}
+
+h1 {
+  float: left;
+  margin: 10px;
+  width:  300px;
+  height: 1.5em;
+}
+
+h2 {
+  float: left;
+  font-size: 0.75em;
+  margin: 10px;
+  font-weight: normal;
+}
+
+
+/**************************************************
+NAVIGATION
+***************************************************/
+
+nav {
+  margin-top: 20px;
+  list-style: none;
+  float: right;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  font-size: 1.4em;
+  font-weight: bold;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+nav a:hover, a:focus {
+    color: #d2b14e;
+    background: #000;
+}
+
+
+/**************************************************
+FOOTER
+***************************************************/
+
+footer {
+  font-size: 0.75em;
+  text-align: center;
+  clear: both;
+  padding-top: 50px;
+  color: #ccc;
+}
+
+.social-icon {
+  widows: 2;
+  height: 20px;
+  margin: 0 5px;
+}
+
+
+/**************************************************
+PAGE: SIGNIN
+***************************************************/
+
+.title {
+    width: 160px;
+    clear: left;
+}
+
+input[type="text"] {
+  width: 120px;
+  border: 1px solid #d6TBPd6d6;
+  padding: 2px;
+  outline: none;
+}
+
+input[type='text']:focus,
+input[type='text']:hover {
+    background-color: #d0e2f0;
+    border: 1px solid #999;
+}
+
+input[type="submit"] {
+    border: 1px solid #006633;
+    background-color: #999;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+input[type='submit'] {
+    border: 1px solid #006633;
+    background-color: #00cc33;
+    color: #fff;
+    cursor: pointer;
+}
+
+select {
+  padding: 6px;
+  height: 32px;
+  border-radius: 2px;
+}
+
+.submit {
+    float: left;
+    width: 160px;
+    text-align: right;
+}
+
+@media screen and (min-width: 480px) {
+
+  form {
+    max-width: 480px;
+  }
+
+}
+
+
+
+/**************************************************
+PAGE: ABOUT
+***************************************************/
+
+
+.profile-photo {
+  float: left;
+  width: 30%;
+  margin-left: 5%;
+  height: 300px;
+}
+
+
+/**************************************************
+PAGE: CONTACTS
+***************************************************/
+
+.contact-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9em;
+}
+
+.contact-info a {
+  display: block;
+  min-height: 20px;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  padding: 0 0 0 30px;
+  margin: 0 0 10px;
+}
+
+.contact-info li.phone a {
+  background-image: url('../img/phone.png');
+}
+
+.contact-info li.mail a {
+  background-image: url('../img/mail.png');
+}
+
+.contact-info li.twitter a {
+  background-image: url('../img/twitter.png');
+}
+
+/**************************************************
+COLORS
+***************************************************/
+
+/*   site  body  */
+body {
+  background-image: url('../img/absurdidad.png');
+  /* color: #999; */
+}
+
+/* green header */
+header {
+  background: #6ab47b;
+  border-color: #599a68;
+}
+
+/* nav background on mobile */
+nav {
+  background: #599a68;
+}
+
+/* logo text */
+h1, h2 {
+  color: skyblue;
+}
+
+/* links */
+a {
+  color: #6ab47b;
+}
+
+/* nav link */
+nav a, nav a:visited {
+  color: #fff;
+}
+
+/* selected nav link */
+nav a.selected, nav a:hover {
+  color: #32673f;
+}
+/* Jumotron
+==============*/
+
+.jumbotron {
+    text-align: center;
+    
+}
+
+
+
+
+
+
+    
