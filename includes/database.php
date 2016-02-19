@@ -8,10 +8,12 @@ try {
         'mysql:host=localhost;dbname=bradandtif',
         'root',
         'tbp5849');
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);   
-    } catch (Exception $ex) {
-        echo $ex->getMessage();
-        die();
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (Exception $e) {
+    echo $e->getMessage();
+    die();
 }
+
+
 
 ?>

@@ -1,56 +1,9 @@
 <!DOCTYPE html>
 <?php
 
-require_once('database.php');
-
 require 'vendor/autoload.php';
 
 date_default_timezone_set('America/New_York');
-
-?>
-
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = trim(filter_input(INPUT_POST,"name",FILTER_SANITIZE_STRING));
-    $email = trim(filter_input(INPUT_POST,"email",FILTER_SANITIZE_EMAIL));
-    $comments = trim(filter_input(INPUT_POST,"comments",FILTER_SANITIZE_SPECIAL_CHARS));
-    
-    if ($name == "" OR $email == "") {
-        echo 'Please fill in the required fields: Name';
-        exit;
-    }
-    
-    //require 'PHPMailerAutoload.php';
-    
-    //$mail = new PHPmailer;
-    
-    //if (!$mail->ValidateAddress($email)) {
-    //    echo "Invaled Email Address";
-    //    exit;
-    //}
-    
-    //$email_body = "";
-    //$email_body .= "Name " . $name . "\n";
-    //$email_body .= "Emal " . $email . "\n";
-    //$email_body .= "Comments " . $comments . "\n";
-
-    //$mail->setFrom($email, $name);
-    //$mail->addAddress('brad@bradandtiffany.me', 'Brad Price');     // Add a recipient
-    
-    //$mail->isHTML(false);                                  // Set email format to HTML
-
-    //$mail->Subject = 'New website visitor - '. $name;
-    //$mail->Body    = $email_body;
-    
-    //if(!$mail->send()) {
-    //    echo 'Message could not be sent.';
-    //    echo 'Mailer Error: ' . $mail->ErrorInfo;
-    //    exit;
-    //}
-
-    
-    header("location:index.php?status=thanks");
-}
 
 $pageTitle = "Sign In";
 $section = "signin";
@@ -75,11 +28,8 @@ include("includes/header.php"); ?>
                 <img src="img/bradandtiffany.png" alt="Photograph of Brad & Tiffany Price" class="img-rounded img-responsive">
             </div>
             <div class="col-md-4">
-                <?php if (isset($_GET["status"]) && $_GET["status"] == "thanks") {
-                    echo "<p>Thanks for the email!&rsquo;Il check out your suggestion shortly</p>";
-                } else { ?>
                 
-                <form action="index.php" method="post">
+                <form action="process.php" method="post">
 
                     <fieldset>
 
@@ -129,10 +79,10 @@ include("includes/header.php"); ?>
 
                 </form>
                 
-                <?php } ?>
-                
             </div>
         </div>
+        
+    <?php include('includes/footer.php') ?>
 
 
 

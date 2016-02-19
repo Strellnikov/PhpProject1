@@ -1,17 +1,29 @@
 <?php
 
-$name = $_POST["name"];
-$email = $_POST["email"];
-$comments = $_POST["comments"];
+//require_once ('database.php');
 
-echo "<pre>";
-$email_body = "";
-$email_body .= "Name " . $name . "\n";
-$email_body .= "Emal " . $email . "\n";
-$email_body .= "Comments " . $comments . "\n";
-echo $email_body;
-echo "</pre>";
+ini_set('display_errors', 'On');
 
-//To Do: send email
+try {
+    $db = new PDO(
+        'mysql:host=localhost;dbname=bradandtif',
+        'root',
+        'tbp5849');
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (Exception $e) {
+    echo $e->getMessage();
+    die();
+}
 
-header("location:thanks.php");
+
+$stmt = $db->prepare("INSERT INTO users(UserFirstName, UserEmail) VALUES (:name, :email)");
+$stmt->bindParam(":name", $name);
+$stmt->bindParam(":email", $email);
+
+$name = $_POST['name'];
+$email = $_POST['email'];
+$stmt->execute();
+
+header('location:thanks.php');
+
+?>
