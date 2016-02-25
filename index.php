@@ -1,17 +1,18 @@
 <!DOCTYPE html>
+
 <?php
 
+require_once ('includes/config.php');
+require_once ('includes/database.php');
+
 require 'vendor/autoload.php';
-
 date_default_timezone_set('America/New_York');
+ 
+$pageTitle = 'Sign In';
+$section = 'signin';
 
-$pageTitle = "Sign In";
-$section = "signin";
-
-include("includes/header.php"); ?>
+include ('includes/header.php'); ?>
                     <li class="active"><a href="index.php">Sign In</a></li>
-                    <li><a href="about.php">Brad's Stuff</a></li>
-                    <li><a href="tiffany.html">Tif's Stuff</a></li>
                 </ul>
                 
             </div>
@@ -28,7 +29,6 @@ include("includes/header.php"); ?>
                 <img src="img/bradandtiffany.png" alt="Photograph of Brad & Tiffany Price" class="img-rounded img-responsive">
             </div>
             <div class="col-md-4">
-                
                 <form action="process.php" method="post">
 
                     <fieldset>
@@ -38,8 +38,8 @@ include("includes/header.php"); ?>
                         <div><label class="title" for="name"><strong>Your name</strong>
                                 <input type="text" id="name" name="name" required="required" tabindex="1">
                            </label><br />
-                           <label class="title" for="email"><strong>Your email</strong>
-                               <input type="email" id="email" name="email" required="required" tabindex="2">
+                           <label class="title" for="mail"><strong>Your email</strong>
+                               <input type="email" id="mail" name="email" required="required" tabindex="2">
                            </label>
                         </div>
 
@@ -69,7 +69,7 @@ include("includes/header.php"); ?>
                            </select>
                         </div><br />
                         <div><label for="comments">Comments
-                                <textarea id="comments" name="comments" tabindex="6"></textarea>
+                                <textarea id="comments" name="usr_comments" tabindex="6"></textarea>
                             </label>
                         </div>
 
@@ -78,11 +78,10 @@ include("includes/header.php"); ?>
                     <button type="submit">Sign In</button>
 
                 </form>
-                
+
             </div>
         </div>
-        
-    <?php include('includes/footer.php') ?>
+        <?php include ('includes/footer.php'); ?>
 
 
 

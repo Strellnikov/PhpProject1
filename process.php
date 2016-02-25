@@ -1,22 +1,16 @@
 <?php
 
-//require_once ('database.php');
-
 ini_set('display_errors', 'On');
 
-try {
-    $db = new PDO(
-        'mysql:host=localhost;dbname=bradandtif',
-        'root',
-        'tbp5849');
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (Exception $e) {
-    echo $e->getMessage();
-    die();
-}
+require_once ('includes/config.php');
+require_once ('includes/database.php');
 
-
-$stmt = $db->prepare("INSERT INTO users(UserFirstName, UserEmail) VALUES (:name, :email)");
+$stmt = $db->prepare(
+                        "INSERT INTO "
+                                . "users(UserFirstName, UserEmail) "
+                        . "VALUES "
+                                . "(:name, :email)"
+        );
 $stmt->bindParam(":name", $name);
 $stmt->bindParam(":email", $email);
 
