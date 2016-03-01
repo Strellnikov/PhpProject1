@@ -82,20 +82,15 @@ function get_products_recent() {
 function get_user_single() {
     require_once ('includes/config.php');
     require_once ('includes/database.php');
-    $email = $_POST['email'];
     
-    $stmt = $db->prepare(
-                                "SELECT "
-                                        . "UserFirstName "
-                              . "FROM "
-                                        . "users "
-                              . "WHERE "
-                                        . "UserEmail = :email"
-                );
-    $stmt->bindParam(":email", $email);   
+    $stmt = $db->prepare("SELECT UserFirstName AS value FROM users WHERE UserEmail = :email");
+    $stmt->bindParam(":email", $email, PDO::PARAM_INT);
+    session_start(); # start session handling
+    $email = $_SESSION['email'];
     $stmt->execute();
     
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    $data = $stmt->fetch();
+    $user = $data['value'];
     
     return $user;
 }

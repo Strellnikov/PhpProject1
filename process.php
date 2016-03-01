@@ -16,6 +16,8 @@ $stmt->bindParam(":email", $email);
 
 $name = $_POST['name'];
 $email = $_POST['email'];
+session_start(); # start session handling
+$_SESSION['email'] = $_POST['email'];
 $stmt->execute();
 
 header('location:thanks.php');

@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 // rermove before deployment
 ini_set('display_errors', 'On');

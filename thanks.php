@@ -30,7 +30,7 @@ include("includes/header.php"); ?>
                 <img src="img/bradandtiffany.png" alt="Photograph of Brad & Tiffany Price" class="img-rounded img-responsive">
             </div>
             <div class="col-md-4">
-                <h3>Thank you <?php $user ?></h3>
+                <h3>Thank you <?php echo $user; ?></h3>
                 <p>Thanks for signing in.  Feel free to look around.  Yall Come Back Now</p>
             </div>
         </div>
