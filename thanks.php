@@ -13,7 +13,7 @@ $user = get_user_single();
 
 include("includes/header.php"); ?>
                     <li><a href="about.php">Brad's Stuff</a></li>
-                    <li><a href="tiffany.html">Tif's Stuff</a></li>
+                    <li><a href="tiffany.php">Tif's Stuff</a></li>
                 </ul>
                 
             </div>

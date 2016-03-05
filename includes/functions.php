@@ -1,7 +1,8 @@
 <?php
 
 function get_products_all() {
-    require('includes/database.php');
+    require_once ('includes/config.php');
+    require_once ('includes/database.php');
     
     try {
         $results = $db->query("SELECT "
@@ -14,10 +15,12 @@ function get_products_all() {
                                 . "products "
                             . "ORDER BY ProductPrice ASC");
         } catch (Exception $e) {
-            echo $e->getMessage();
+            echo 'GET PRODUCTS ALL failed';
             exit;
     }
-    $products = $results->fetchAll(PDO::FETCH_ASSOC);
+    $data = $results->fetchAll(PDO::FETCH_ASSOC);
+ //   $data = $stmt->fetch();
+    $products = $data;
     return $products;
         
 }
