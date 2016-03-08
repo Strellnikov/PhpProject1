@@ -9,6 +9,7 @@ date_default_timezone_set('America/New_York');
 $pageTitle = "Crafts By Tiffany";
 $section = "signin";
 $products = get_products_all();
+$count = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -90,29 +91,42 @@ $products = get_products_all();
                 <div class="row carousel-holder">
 
                     <div class="col-md-12">
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">                            
                             <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <img class="slide-image" src="img/rudolph and christmas tree.JPG" alt="Rudolph Xmas Tree">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" src="img/christmas tress 1.JPG" alt="Christmas Trees I">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" src="img/christmas tress 2.JPG" alt="Christmas Tress II">
-                                </div>
-                            </div>
+                                <?php while ($count <= 4) {
+                                    if ($count === 0) {
+                                        $class1 = 'active';                                        
+                                    } else {
+                                        $class1 = '';
+                                    }                                    
+                                ?>
+                                <li data-target="#carousel-example-generic" data-slide-to="<?php echo $count; ?>" class="<?php echo $class1; ?>"></li>
+                                <?php 
+                                $count = $count + 1;
+                                } ?>
+                            </ol>                           
+                            <div class="carousel-inner"> 
+                                <?php
+                                $count = 0;
+                                foreach ($products as $column) {
+                                        if ($count === 0) {
+                                            $class2 = 'item active';                                        
+                                        } else {
+                                            $class2 = 'item';
+                                        }
+                                        $count = $count + 1;
+                                ?>
+                                <div class="<?php echo $class2; ?>">
+                                    <img class="slide-image" src="<?php echo $column['ProductImage']; ?>" alt="<?php echo $column['ProductName']; ?>">
+                                </div>                              
+                                <?php } ?>
+                            </div>                            
                             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
                                 <span class="glyphicon glyphicon-chevron-left"></span>
                             </a>
                             <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
                                 <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
+                            </a>                            
                         </div>
                     </div>
 
@@ -120,30 +134,28 @@ $products = get_products_all();
 
                 <div class="row">                    
                     
-                    <?php foreach ($products as $column) {
-                    echo '<div class="col-sm-4 col-lg-4 col-md-4">';
-                        echo '<div class="thumbnail">';
-                            echo '<img src="' . $column["ProductImage"] . '" alt="' . $column["ProductName"] . '">';
-                            echo '<div class="caption">';
-                                echo '<h4 class="pull-right">"' . $column["ProductPrice"] . '"</h4>';
-                                echo '<h4><a href="#">"' . $column["ProductName"] . '"</a>';
-                                echo '</h4>';
-                                echo '<p>"' . $column["ProductShortDesc"] . '"</p>';
-                            echo '</div>'; 
-                            echo '<div class="ratings">';
-                                echo '<p class="pull-right">15 reviews</p>';
-                                echo '<p>';
-                                    echo '<span class="glyphicon glyphicon-star"></span>';
-                                    echo '<span class="glyphicon glyphicon-star"></span>';
-                                    echo '<span class="glyphicon glyphicon-star"></span>';
-                                    echo '<span class="glyphicon glyphicon-star"></span>';
-                                    echo '<span class="glyphicon glyphicon-star"></span>';
-                                echo '</p>';
-                             echo '</div>';
-                        echo '</div>';
-                    echo '</div>';                    
-                    }
-                    ?>
+                    <?php foreach ($products as $column) { ?>
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img src="<?php echo $column['ProductImage']; ?>" alt="<?php echo $column['ProductName']; ?>">
+                            <div class="caption">
+                                <h4 class="pull-right"><?php echo $column["ProductPrice"]; ?></h4>
+                                <h4><a href="#"><?php echo $column["ProductName"]; ?></a></h4>
+                                <p><?php echo $column["ProductShortDesc"]; ?></p>
+                            </div> 
+                            <div class="ratings">
+                                <p class="pull-right">15 reviews</p>
+                                <p>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                </p>
+                             </div>
+                        </div>
+                    </div>                    
+                    <?php } ?>
                     
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <h4><a href="#">Like these ornamantes?</a>
