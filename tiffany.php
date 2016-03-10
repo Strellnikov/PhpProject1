@@ -9,6 +9,7 @@ date_default_timezone_set('America/New_York');
 $pageTitle = "Crafts By Tiffany";
 $section = "signin";
 $products = get_products_all();
+$cntcarsl = get_products_count();
 $count = 0;
 ?>
 <!DOCTYPE html>
@@ -93,7 +94,7 @@ $count = 0;
                     <div class="col-md-12">
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">                            
                             <ol class="carousel-indicators">
-                                <?php while ($count <= 4) {
+                                <?php while ($count <= $cntcarsl) {
                                     if ($count === 0) {
                                         $class1 = 'active';                                        
                                     } else {
@@ -135,6 +136,7 @@ $count = 0;
                 <div class="row">                    
                     
                     <?php foreach ($products as $column) { ?>
+                    
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
                             <img src="<?php echo $column['ProductImage']; ?>" alt="<?php echo $column['ProductName']; ?>">
@@ -154,7 +156,8 @@ $count = 0;
                                 </p>
                              </div>
                         </div>
-                    </div>                    
+                    </div>
+                    
                     <?php } ?>
                     
                     <div class="col-sm-4 col-lg-4 col-md-4">
