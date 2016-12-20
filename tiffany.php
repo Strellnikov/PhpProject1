@@ -1,8 +1,8 @@
 <?php 
 
-require ('vendor/autoload.php');
-require ('includes/config.php');
-require ('includes/functions.php');
+require('vendor/autoload.php');
+require('includes/config.php');
+require('includes/functions.php');
 
 date_default_timezone_set('America/New_York');
 
@@ -55,10 +55,9 @@ $count = 0;
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="index.php">Sign in</a>
-                        
+                        <a href="index.php">Sign in</a>                        
                     </li>
                     <li>
                         <a href="about.php">About</a>
@@ -95,32 +94,38 @@ $count = 0;
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">                            
                             <ol class="carousel-indicators">
                                 <?php while ($count <= $cntcarsl) {
-                                    if ($count === 0) {
-                                        $class1 = 'active';                                        
-                                    } else {
-                                        $class1 = '';
-                                    }                                    
-                                ?>
-                                <li data-target="#carousel-example-generic" data-slide-to="<?php echo $count; ?>" class="<?php echo $class1; ?>"></li>
+    if ($count === 0) {
+        $class1 = 'active';
+    } else {
+        $class1 = '';
+    }
+    ?>
+                                <li data-target="#carousel-example-generic" data-slide-to="<?php echo $count;
+    ?>" class="<?php echo $class1;
+    ?>"></li>
                                 <?php 
                                 $count = $count + 1;
-                                } ?>
+} ?>
                             </ol>                           
                             <div class="carousel-inner"> 
                                 <?php
                                 $count = 0;
                                 foreach ($products as $column) {
-                                        if ($count === 0) {
-                                            $class2 = 'item active';                                        
-                                        } else {
-                                            $class2 = 'item';
-                                        }
-                                        $count = $count + 1;
-                                ?>
-                                <div class="<?php echo $class2; ?>">
-                                    <img class="slide-image" src="<?php echo $column['ProductImage']; ?>" alt="<?php echo $column['ProductName']; ?>">
+                                    if ($count === 0) {
+                                        $class2 = 'item active';
+                                    } else {
+                                        $class2 = 'item';
+                                    }
+                                    $count = $count + 1;
+                                    ?>
+                                <div class="<?php echo $class2;
+                                    ?>">
+                                    <img class="slide-image" src="<?php echo $column['ProductImage'];
+                                    ?>" alt="<?php echo $column['ProductName'];
+                                    ?>">
                                 </div>                              
-                                <?php } ?>
+                                <?php 
+                                } ?>
                             </div>                            
                             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
                                 <span class="glyphicon glyphicon-chevron-left"></span>
@@ -135,15 +140,21 @@ $count = 0;
 
                 <div class="row">                    
                     
-                    <?php foreach ($products as $column) { ?>
+                    <?php foreach ($products as $column) {
+                                    ?>
                     
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="<?php echo $column['ProductImage']; ?>" alt="<?php echo $column['ProductName']; ?>">
+                            <img src="<?php echo $column['ProductImage'];
+                                    ?>" alt="<?php echo $column['ProductName'];
+                                    ?>">
                             <div class="caption">
-                                <h4 class="pull-right"><?php echo $column["ProductPrice"]; ?></h4>
-                                <h4><a href="#"><?php echo $column["ProductName"]; ?></a></h4>
-                                <p><?php echo $column["ProductShortDesc"]; ?></p>
+                                <h4 class="pull-right"><?php echo $column["ProductPrice"];
+                                    ?></h4>
+                                <h4><a href="#"><?php echo $column["ProductName"];
+                                    ?></a></h4>
+                                <p><?php echo $column["ProductShortDesc"];
+                                    ?></p>
                             </div> 
                             <div class="ratings">
                                 <p class="pull-right">15 reviews</p>
@@ -158,7 +169,8 @@ $count = 0;
                         </div>
                     </div>
                     
-                    <?php } ?>
+                    <?php 
+                                } ?>
                     
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <h4><a href="#">Like these ornamantes?</a>

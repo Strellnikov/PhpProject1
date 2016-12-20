@@ -1,8 +1,9 @@
 <?php
 
-function get_products_all() {
-    require_once ('includes/config.php');
-    require_once ('includes/database.php');
+function get_products_all()
+{
+    require_once('includes/config.php');
+    require_once('includes/database.php');
     
     try {
         $results = $db->query("SELECT "
@@ -14,22 +15,22 @@ function get_products_all() {
                             . "FROM "
                                 . "products "
                             . "ORDER BY ProductPrice ASC");
-        } catch (Exception $e) {
-            echo 'GET PRODUCTS ALL failed';
-            exit;
+    } catch (Exception $e) {
+        echo 'GET PRODUCTS ALL failed';
+        exit;
     }
     $data = $results->fetchAll(PDO::FETCH_ASSOC);
  //   $data = $stmt->fetch();
     $products = $data;
     return $products;
-        
 }
 
-/* 
+/*
  * return a single product
  */
 
-function get_product_single($ProductID) {
+function get_product_single($ProductID)
+{
     require('includes/database.php');
     
     try {
@@ -41,9 +42,9 @@ function get_product_single($ProductID) {
                             . "FROM "
                                 . "products "
                             . "ORDER BY ProductPrice ASC");
-        } catch (Exception $ex) {
-            echo "Data could not be retirved from the database.";
-            exit;
+    } catch (Exception $ex) {
+        echo "Data could not be retirved from the database.";
+        exit;
     }
     
     $product = $results->fetch(PDO::FETCH_ASSOC);
@@ -51,12 +52,12 @@ function get_product_single($ProductID) {
     return $product;
 }
 
-/* 
+/*
  * Returns the six most recent products, using the ororder of the lements in the array
  */
-function get_products_recent() {
-    
-    require ('includes/database.php');
+function get_products_recent()
+{
+    require('includes/database.php');
     
     try {
         $results = $db->query("SELECT "
@@ -69,22 +70,23 @@ function get_products_recent() {
                                 . "products "
                             . "ORDER BY ProductPrice DESC"
                             . "LIMIT 6");
-        } catch (Exception $ex) {
-            echo "Data could not be retirved from the database.";
-            exit;
+    } catch (Exception $ex) {
+        echo "Data could not be retirved from the database.";
+        exit;
     }
     $recent = $results->fetchAll(PDO::FETCH_ASSOC);
     
     return $recent;
 }
 
-/* 
+/*
  * return a single user
  */
 
-function get_user_single() {
-    require_once ('includes/config.php');
-    require_once ('includes/database.php');
+function get_user_single()
+{
+    require_once('includes/config.php');
+    require_once('includes/database.php');
     
     $stmt = $db->prepare("SELECT UserFirstName AS value FROM users WHERE UserEmail = :email");
     $stmt->bindParam(":email", $email, PDO::PARAM_INT);
@@ -100,7 +102,8 @@ function get_user_single() {
 
 /* Counts the total number of products  */
 
-function get_products_count() {
+function get_products_count()
+{
     require 'includes/database.php';
     
     try {
@@ -118,8 +121,8 @@ function get_products_count() {
  * using the order of the elements in the array.
  */
 
-function get_products_subset($posStart, $posEnd) {
-    
+function get_products_subset($posStart, $posEnd)
+{
     $offset = $posStart - 1;
     $rows = $posEnd - $posStart + 1;
     
@@ -136,8 +139,8 @@ function get_products_subset($posStart, $posEnd) {
                                 . "products "
                             . "ORDER BY ProductPrice ASC"
                             . "LIMIT ?, ?");
-        $results->bindParam(1,$offset,PDO::PARAM_INT);
-        $results->bindParam(2,$rows,PDO::PARAM_INT);
+        $results->bindParam(1, $offset, PDO::PARAM_INT);
+        $results->bindParam(2, $rows, PDO::PARAM_INT);
         $results->execute();
     } catch (Exception $ex) {
         echo "Data cound not be retrieved from the database.";
@@ -150,8 +153,8 @@ function get_products_subset($posStart, $posEnd) {
 }
 
 /* lookS for a search term in the product names */
-function get_products_search($s) {
-
+function get_products_search($s)
+{
     require 'includes/database.php';
 
     try {
@@ -166,7 +169,7 @@ function get_products_search($s) {
                                 . "WHERE "
                                     . ""
                                 . "ORDER BY ProductPrice ASC");
-        $results->bindValue(1,"%" . $s . "%");
+        $results->bindValue(1, "%" . $s . "%");
         $results->execute();
     } catch (Exception $ex) {
         echo 'Data could not be retieved from the database.';
@@ -175,5 +178,4 @@ function get_products_search($s) {
      
     $matches = $results->fetchAll(PDO::FETCH_ASSOC);
     return $matches;
-}   
-?>
+}

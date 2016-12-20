@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -24,4 +26,3 @@
             <a class="navbar-brand">Brad and Tiffany's Website</a>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-

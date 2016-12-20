@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <?php
 
-require ('vendor/autoload.php');
-require ('includes/config.php');
-require ('includes/functions.php');
+require('vendor/autoload.php');
+require('includes/config.php');
+require('includes/functions.php');
 
 date_default_timezone_set('America/New_York');
 
