@@ -24,7 +24,7 @@ include("includes/header.php"); ?>
             <div class="col-md-4">
                 <h3>Contact Details</h3>
                 <ul class="contact-info">
-                  <li class="phone"><a href="tel:213-0058">213-0058</a></li>
+                  <li class="phone"><a href="tel:213-0058">812-213-0058</a></li>
                   <li class="mail"><a href="mailto:brad@bradandtiffany.me">brad@bradandtiffany.me</a></li>
                   <li class="twitter"><a href="http://twitter.com/intent/tweet?screen_name=tiffanyp">@tiffanyp</a></li>
                 </ul>
